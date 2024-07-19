@@ -25,6 +25,5 @@ function generateMaze(size){
         }
     }
     mazeCount++
-    const button = document.createElement("button")
-    button.onclick(formatMaze(size,mazeCount))
+    formatMaze(rowCount,mazeCount)
 }
