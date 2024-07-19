@@ -3,6 +3,7 @@ var colCount = 0;
 var rowCount = 0;
 
 function generateMaze(size){
+    var sizeCounter = 0
     var measurements = 100/size;
     var parent = document.createElement("div");
     parent.className = "Maze container";
@@ -17,6 +18,7 @@ function generateMaze(size){
         parent.appendChild(child_row)
         for(let u = 0; u<size; u++){
             colCount++
+            sizeCounter++
             var child_col = document.createElement("div");
             child_col.className = "col Maze-col border border-black border-1";
             child_col.id = "Maze-col-"+ colCount;
@@ -25,5 +27,5 @@ function generateMaze(size){
         }
     }
     mazeCount++
-    formatMaze(rowCount,mazeCount)
+    formatMaze(sizeCounter,mazeCount)
 }
