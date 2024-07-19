@@ -11,6 +11,7 @@ function generateMaze(size){
     document.body.appendChild(parent)
     for(let i = 0; i<size; i++){
         rowCount++
+        sizeCounter++
         var child_row = document.createElement("div");
         child_row.className = "row Maze-row g-0";
         child_row.id = "Maze-row-"+ rowCount;
@@ -18,7 +19,6 @@ function generateMaze(size){
         parent.appendChild(child_row)
         for(let u = 0; u<size; u++){
             colCount++
-            sizeCounter++
             var child_col = document.createElement("div");
             child_col.className = "col Maze-col border border-black border-1";
             child_col.id = "Maze-col-"+ colCount;
@@ -27,5 +27,5 @@ function generateMaze(size){
         }
     }
     mazeCount++
-    formatMaze(sizeCounter,mazeCount)
+    formatMaze(sizeCounter,colCount,mazeCount)
 }
