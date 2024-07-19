@@ -2,15 +2,14 @@ function randomNumber(max){
     return Math.floor(Math.random() * max)
 }
 
-function formatMaze(size, number){
+function formatMaze(size, numberCol){
     console.log("begin")
-    algorithm(size, number, [], [], 1);
+    algorithm(size, numberCol, [], [], 1);
     console.log("done")
 }
 
-function algorithm(size, number, visited, intersections, position){
+function algorithm(size, numberCol, visited, intersections, position){
     visited.push(position)
-    
     var nextPlace;
     var possibilities = []
 
@@ -43,22 +42,22 @@ function algorithm(size, number, visited, intersections, position){
             let index = randomNumber(intersections.length)
             nextPlace = intersections[index]
             intersections.splice(index, 1)
-            algorithm(size,number,visited, intersections,nextPlace)
+            algorithm(size,numberCol,visited, intersections,nextPlace)
             return
         }
     }
 
     let index = randomNumber(possibilities.length)
     nextPlace = possibilities[index]
-    removeBarrier(size,number,position,nextPlace)
-    algorithm(size,number,visited,intersections,nextPlace)
+    removeBarrier(size,numberCol,position,nextPlace)
+    algorithm(size,numberCol,visited,intersections,nextPlace)
     return
 }
 
-function removeBarrier(size,number,position, nextPosition){
+function removeBarrier(size,numberCol,position, nextPosition){
     var diference = position - nextPosition
-    var pos = document.getElementById("Maze-col-"+((size*size)*(number-1) + position))
-    var newPos = document.getElementById("Maze-col-"+((size*size)*(number-1) + nextPosition))
+    var pos = document.getElementById("Maze-col-"+((numberCol - (size*size)) + position))
+    var newPos = document.getElementById("Maze-col-"+((numberCol - (size*size)) + nextPosition))
     // left
     if (diference == 1){
         pos.classList.add("border-start-0");
