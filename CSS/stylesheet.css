@@ -1,0 +1,14 @@
+.Maze{
+    height: 1000px!important;
+    width: 1000px!important;
+    padding: 12px;
+}
+
+/* .Maze-row{
+    height: 20%;
+}
+
+.Maze-col{
+    width: 20%;
+    height: 100%;
+} */
