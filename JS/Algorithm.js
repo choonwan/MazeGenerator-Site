@@ -10,10 +10,10 @@ function formatMaze(size, number){
 
 function algorithm(size, number, visited, intersections, position){
     visited.push(position)
+    
     var nextPlace;
     var possibilities = []
 
-    console.log(position, visited, intersections)
     //right
     if (!(visited.filter((place) => place == (position+1)).length) && ((position%size) != 0)){
         possibilities.push(position+1)
@@ -31,7 +31,6 @@ function algorithm(size, number, visited, intersections, position){
         possibilities.push(position-size)
     }
 
-    console.log(possibilities)
 
     if (possibilities.length > 1){
         intersections.push(position)
