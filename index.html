@@ -12,7 +12,23 @@
 </head>
 <body>
     <h1>Maze Generator with alogorithm</h1>
-    <button class="btn btn-outline-primary" type="button" onclick="generateMaze(57)">Generate Maze</button>
+    <form action="/HTML/Maze/index.html" method="get" id="sizeSelector">
+        <label for="size">Size:</label>
+        <input type="text" name="size" id="size">
+        <button type="submit">Generate</button>
+    </form>
+    <script>
+        const sizeNum = document.getElementById('size')
+        const sizeSelector = document.getElementById('sizeSelector')
+
+        sizeSelector.addEventListener('submit',(e)=>{
+            if (sizeNum.value > 0 && sizeNum.value < 55){
+                e.preventDefault()
+                generateMaze(sizeNum.value)
+            }
+            e.preventDefault()
+        })
+    </script>
     <script src="JS/Maze-display.js"></script>
     <script src="JS/Algorithm.js"></script>
 </body>
